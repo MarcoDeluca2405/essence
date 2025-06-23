@@ -1,0 +1,73 @@
+<div class="div-cotnainer">
+  <div
+    class="navbar flex flex-col sm:flex-row items-center justify-content-center"
+  >
+    <div
+      class="Logo flex items-center mb-3 mt-1 sm:mb-0 gap-3 sm:flex-1 md:gap-3 md:flex-3"
+    >
+      <img
+        src="/img/logo.jpg"
+        alt="Logo"
+        class="h-10 w-10 sm:h-15 sm:w-15 rounded-full ml-2"
+      />
+      <img
+        src="/img/ESSENCE.png"
+        alt="text logo"
+        class="textlogo w-30 sm:w-40"
+      />
+    </div>
+    <div class="flex flex-row w-full justify-between">
+      <div class="relative sm:flex-6 search-bar">
+        <input
+          type="search"
+          placeholder="Search"
+          class="h-7 bg-white rounded-3xl pl-8 w-8 sm:w-140"
+        />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="absolute left-1.5 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none"
+        >
+          <path
+            stroke-linecap="round"
+            fill="none"
+            stroke-linejoin="round"
+            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+          />
+        </svg>
+      </div>
+
+      <div class="sm:hidden menu">
+        <button (click)="onclickMenu()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="hidden sm:flex link-button flex-row md:flex-4 md:gap-25 mr-10">
+      <button>Home</button>
+      <button>Shop</button>
+      <button>about</button>
+      <button class="img"><img src="/img/basket.png" /></button>
+      <button class="img"><img src="/img/Heart.png" /></button>
+    </div>
+
+    <div class="toogle-menu"></div>
+  </div>
+</div>

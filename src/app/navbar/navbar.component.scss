@@ -1,0 +1,140 @@
+@mixin size-animation {
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.25);
+  }
+}
+
+@mixin size-animation-mobile-search {
+  width: 20px;
+  transition: width 0.4s cubic-bezier(0.2, 0.1, 0.1, 1);
+  &:hover {
+    width: 200px;
+  }
+}
+
+@mixin transition-center {
+  transform: translateX(0);
+  transition: transform 0.4s ease-in-out;
+  &:focus-within {
+    margin-left: 0;
+    transform: translateX(
+      30%
+    ); // puoi adattare il valore a seconda della larghezza
+  }
+}
+
+:host {
+}
+
+.div-cotnainer {
+  position: relative;
+
+  .navbar {
+    background-color: #f9ecec;
+    height: 78px;
+    width: 100vw;
+    z-index: 2;
+
+    @media screen and (max-width: 768px) {
+      height: 95px;
+    }
+
+    .search-bar {
+      @media screen and (max-width: 768px) {
+        @include transition-center;
+        margin-left: 15px;
+      }
+
+      input[type='search'] {
+        @media screen and (max-width: 768px) {
+          @include size-animation-mobile-search;
+          &:focus {
+            width: 200px;
+          }
+        }
+      }
+
+      input[type='search']::placeholder {
+        color: #a0a0a0;
+        font-size: 18px;
+      }
+
+      input[type='search']:focus {
+        outline: none;
+        border: 2px solid #b01060;
+      }
+
+      input[type='search']::-webkit-search-cancel-button {
+        display: none;
+      }
+    }
+
+    .menu {
+      margin-right: 20px;
+    }
+
+    .link-button {
+      button {
+        font-family: 'Abhaya Libre', serif;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      .img {
+        width: 30px;
+        height: 30px;
+
+        @include size-animation;
+      }
+    }
+
+    .toogle-menu {
+      position: absolute;
+      width: 100%;
+      z-index: -1;
+      background-color: #e4dae7;
+      top: 0;
+      height: 0;
+      overflow: hidden;
+
+      &.active {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+
+      &.disabled {
+        animation: fadeOut 0.5s ease-in forwards;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        height: 0;
+        top: 0;
+        transform: translateY(-100%);
+      }
+      to {
+        opacity: 1;
+        height: 100px;
+        top: 95px;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+        height: 100px;
+        top: 95px;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        height: 0;
+        top: 0;
+        transform: translateY(-100%);
+      }
+    }
+  }
+}
